@@ -1,6 +1,6 @@
 <template>
   <div class="high-score-movies">
-    <h3> {{msg}} </h3>
+      <h3> {{msg}} </h3>
     <div class="movie_item" v-for="movie in movies">
       <div class="item_img" @click="goToMovie(movie.movieid)">
         <img width="150" height="220" :src="movie.localimg" >
@@ -32,7 +32,8 @@ export default {
   data () {
     return {
       msg: '高评分电影',
-      movies: ''
+      movies: '',
+      buttonText: '点击加载更多'
     }
   },
   methods: {
@@ -62,7 +63,7 @@ export default {
 <style lang="stylus" scoped>
 .high-score-movies
   height 1800px
-  margin 0px auto
+  margin 40px auto
 @media screen and (min-width: 1201px){
   .high-score-movies{width:1200px}
 }

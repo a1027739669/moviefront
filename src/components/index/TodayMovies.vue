@@ -52,7 +52,8 @@ export default {
       current_movie: '',
       value: 18,
       movies: '',
-      page: 0
+      page: 0,
+      user: {}
     }
   },
   methods: {

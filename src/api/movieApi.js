@@ -92,8 +92,26 @@ export default {
     }
     )
   },
+  searchPersonByKeyword (keywords, limit, offset) {
+    let url = movieApi.searchPersonByKeywordsUrl() + '?keywords=' + keywords + '&limit=' + limit + '&offset=' + offset
+    return axios({
+      method: 'get',
+      url: url,
+      withCredentials: true
+    }
+    )
+  },
   getMovieByMovieId (id) {
     let url = movieApi.movieUrl(id)
+    return axios({
+      method: 'get',
+      url: url,
+      withCredentials: true
+    }
+    )
+  },
+  getPersonByPersonId (id) {
+    let url = movieApi.personUrl(id)
     return axios({
       method: 'get',
       url: url,
@@ -121,6 +139,15 @@ export default {
   },
   deleteComment (commentid) {
     let url = movieApi.deleteCommentUrl() + '?commentid=' + commentid
+    return axios({
+      method: 'get',
+      url: url,
+      withCredentials: true
+    }
+    )
+  },
+  getTodayPersons () {
+    let url = movieApi.todayPersonUrl()
     return axios({
       method: 'get',
       url: url,

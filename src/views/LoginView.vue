@@ -39,10 +39,25 @@ export default {
       username: '',
       password: '',
       usernameError: '',
-      passwordError: ''
+      passwordError: '',
+      user: {},
+      isShow: true
+    }
+  },
+  provide () {
+    return {
+      reload: this.reload
     }
   },
   methods: {
+    reload () {
+      // 先隐藏
+      this.isShow = false
+      // $nextTick() 将回调延迟到下次 DOM 更新循环之后执行
+      this.$nextTick(() => {
+        this.isShow = true
+      })
+    },
     register () {
       this.$router.push('/register')
     },
@@ -73,10 +88,6 @@ export default {
               message: res.data['error'],
               type: 'error'
             })
-            // 刷新验证码
-            // _this.$store.dispatch('changeCaptcha')
-            // // 清空验证码
-            // _this.$store.dispatch('setCaptcha', '')
           } else {
             // 登录成功
             window.console.log(res.data['success'])

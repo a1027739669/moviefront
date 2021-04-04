@@ -2,17 +2,6 @@
   <div class="search-view">
     <div class="search-bar" @keyup.enter="searchMovie">
       <el-input placeholder="请输入内容" v-model="keywords" style="width: 600px;" size="large">
-<!--        <el-select v-model="type" slot="prepend" placeholder="名称 ">-->
-<!--          <el-option label="名称" value="3"></el-option>-->
-<!--          <el-option label="别名" value="16"></el-option>-->
-<!--          <el-option label="导演" value="7"></el-option>-->
-<!--          <el-option label="演员" value="9"></el-option>-->
-<!--          <el-option label="类型" value="10"></el-option>-->
-<!--          <el-option label="国家" value="12"></el-option>-->
-<!--          <el-option label="语言" value="14"></el-option>-->
-<!--          <el-option label="年份" value="6"></el-option>-->
-<!--          <el-option label="评分" value="4"></el-option>-->
-<!--        </el-select>-->
         <el-button slot="append" icon="search" @click="searchMovie"></el-button>
       </el-input>
     </div>
@@ -54,15 +43,9 @@ export default {
     this.get_today_movies()
   },
   data () {
-    const sortBy = {
-      'movieid': 'movieid',
-      'score': 'score',
-      'year': 'year'
-    }
     return {
       keywords: '',
       type: '',
-      sortBy,
       limit: 10,
       offset: 0,
       movies: [],
@@ -76,7 +59,6 @@ export default {
       this.keywords = this.$route.query.keywords
     },
     loadMore () {
-      console.log('-------------')
       this.loading = true
       this.offset += this.limit
       this.searchMovie()

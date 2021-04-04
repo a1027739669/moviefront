@@ -43,14 +43,14 @@
         </tbody>
       </table>
     </div>
-    <!-- <div class="pagination">
-      <span>共{{parseInt(loginLogList.length/size)+1}}页</span>
-      <button class="prev" type="button" name="button" @click="prev">《</button>
-      <ul v-for="n in total">
-        <li class="number">{{n}}</li>
-      </ul>
-      <button class="next" type="button" name="button" @click="next">》</button>
-    </div> -->
+<!--     <div class="pagination">-->
+<!--      <span>共页</span>-->
+<!--      <button class="prev" type="button" name="button" @click="prev">《</button>-->
+<!--&lt;!&ndash;      <ul v-for="n in total">&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="number">{{n}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;      </ul>&ndash;&gt;-->
+<!--      <button class="next" type="button" name="button" @click="next">》</button>-->
+<!--    </div>-->
   </div>
 </template>
 

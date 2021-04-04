@@ -33,22 +33,27 @@ export const userApi = {
   // POST
   resetPasswordUrl: () => host + '/accounts/reset-password',
   // POST
-  sendMessageUrl: () => host + '/send',
-  saveImgUrl: () => host + '/user/save'
+  sendMessageUrl: () => host + '/send/',
+  saveImgUrl: () => host + '/user/save',
+  saveMessageUrl: () => host + '/message/save/',
+  getMessageUrl: () => host + '/message/get'
 }
 
 export const movieApi = {
   // GET
   dailyMovieUrl: () => host + '/movies/today',
+  todayPersonUrl: () => host + '/persons/today',
   dailyMovieUrlWithUnlogin: () => host + '/movies/unlogintoday',
   highScoreMovieUrl: () => host + '/movies/highscoremovie',
   // GET
   searchMovieUrl: () => host + '/searches/movies',
   searchMovieByKeywordsUrl: () => host + '/movies/search',
+  searchPersonByKeywordsUrl: () => host + '/persons/search',
   // GET
   suggestionMovieUrl: () => host + '/searches/suggestions',
   // GET
   movieUrl: id => host + '/movie?id=' + id,
+  personUrl: id => host + '/person?id=' + id,
   // GET
   doubanMovieUrl: id => host + '/movie/douban/?id=' + id,
   ratingMovieUrl: () => host + '/movies/rating',
@@ -56,5 +61,6 @@ export const movieApi = {
   ratingListUrl: () => host + '/movies/ratinglist',
   commentListUrl: () => host + '/movies/commentlist',
   deleteCommentUrl: () => host + '/movies/deletecomment',
-  getAlsoLikeMovieUrl: () => host + '/movies/alsolike'
+  getAlsoLikeMovieUrl: () => host + '/movies/alsolike',
+  getPersonUrl: () => host + '/movies/alsolike'
 }

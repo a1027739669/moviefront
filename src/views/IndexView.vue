@@ -9,9 +9,7 @@
     <div class="wrapper">
       <high-score-movies></high-score-movies>
     </div>
-    <div class="wrapper" v-if="login">
-      <similar-users></similar-users>
-    </div>
+
   </div>
 </template>
 
@@ -19,14 +17,12 @@
 import TodayMovies from '../components/index/TodayMovies.vue'
 import HotMovies from '../components/index/HotMovies.vue'
 import HighScoreMovies from '../components/index/HighScoreMovies.vue'
-import SimilarUsers from '../components/index/SimilarUsers.vue'
 export default {
   name: 'index-view',
   components: {
     TodayMovies,
     HotMovies,
-    HighScoreMovies,
-    SimilarUsers
+    HighScoreMovies
   },
   data () {
     return {

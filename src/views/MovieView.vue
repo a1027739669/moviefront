@@ -178,6 +178,7 @@ export default {
   name: 'movie-view',
   created () {
     this.get_one_movie()
+    this.page = 0
   },
   data () {
     return {

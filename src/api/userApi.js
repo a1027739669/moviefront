@@ -72,5 +72,22 @@ export default {
       withCredentials: true
     }
     )
+  },
+  saveMessage (message) {
+    return axios({
+      method: 'post',
+      url: userApi.saveMessageUrl(),
+      data: message,
+      withCredentials: true
+    }
+    )
+  },
+  getMessage (message) {
+    return axios({
+      method: 'get',
+      url: userApi.getMessageUrl(),
+      withCredentials: true
+    }
+    )
   }
 }

@@ -16,11 +16,6 @@
           <div @click="place_select(place)">{{place.place}}</div>
         </el-option>
       </el-select>
-<!--      <el-select v-model="movie_type" placeholder="选择类型" class="select_input">-->
-<!--        <el-option v-for="type in type_options" :value="type.keywords">-->
-<!--           <div @click="type_select(type)">{{type.keywords}}</div>-->
-<!--        </el-option>-->
-<!--      </el-select>-->
       <el-select v-model="sorting" placeholder="选择排序方式" class="select_input">
         <el-option v-for="sort in sort_options" :value="sort.sorting">
             <div @click="sort_select(sort)">{{sort.sorting}}</div>

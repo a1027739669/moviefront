@@ -2,56 +2,20 @@
   <div class="hot-movies">
     <h3> {{msg}} </h3>
     <slider>
-      <slider-item>
-        <div>
-          <img width="75%" height="300" src="http://127.0.0.1:8000/media/moviecover/p477906875.jpg">
+      <slider-item v-for="movie in movies">
+        <div @click="goToMovie(movie.movieid)">
+          <img width="75%" height="300" :src="movie.localimg"  >
           <div class="hot_movie_context">
-            <label>哈尔的移动城堡&nbsp;<span>1999</span></label>
-            <el-rate v-model="value5" disabled show-text text-color="#ff9900">
+            <label>{{ movie.name }}&nbsp;<span>{{ movie.year }}</span></label>
+            <el-rate v-model="movie.score" disabled show-text text-color="#ff9900">
             </el-rate>
             <div class="hot_movie_introduce">
-              <label>导演&nbsp;&nbsp;宫崎骏</label><br>
-              <label>演员&nbsp;&nbsp;宫崎骏</label>
+              <label>导演&nbsp;&nbsp;{{ movie.director }}</label><br>
+              <label>演员&nbsp;&nbsp;{{ movie.actors.substring(0, 20) }}...</label>
             </div>
             <div class="hot_movie_comment">
               <label>推荐理由</label><br>
-              <p>上帝在第七天创造了人类，赋予了他们善良、感恩、勤劳、快乐、谦虚、克制与无私。</p>
-            </div>
-          </div>
-        </div>
-      </slider-item>
-      <slider-item>
-        <div>
-          <img width="75%" height="300" src="http://img5.mtime.cn/mg/2016/11/26/090325.11034692.jpg">
-          <div class="hot_movie_context">
-            <label>你的名字&nbsp;<span>2016</span></label>
-            <el-rate v-model="value5" disabled show-text text-color="#ff9900">
-            </el-rate>
-            <div class="hot_movie_introduce">
-              <label>导演&nbsp;&nbsp;宫崎骏</label><br>
-              <label>演员&nbsp;&nbsp;宫崎骏</label>
-            </div>
-            <div class="hot_movie_comment">
-              <label>推荐理由</label><br>
-              <p>上帝在第七天创造了人类，赋予了他们善良、感恩、勤劳、快乐、谦虚、克制与无私。</p>
-            </div>
-          </div>
-        </div>
-      </slider-item>
-      <slider-item>
-        <div>
-          <img width="75%" height="300" src="http://img5.mtime.cn/mg/2016/11/28/155750.78638707.jpg">
-          <div class="hot_movie_context">
-            <label>昨夜秋风凋碧树&nbsp;<span>1999</span></label>
-            <el-rate v-model="value5" disabled show-text text-color="#ff9900">
-            </el-rate>
-            <div class="hot_movie_introduce">
-              <label>导演&nbsp;&nbsp;宫崎骏</label><br>
-              <label>演员&nbsp;&nbsp;宫崎骏</label>
-            </div>
-            <div class="hot_movie_comment">
-              <label>推荐理由</label><br>
-              <p>上帝在第七天创造了人类，赋予了他们善良、感恩、勤劳、快乐、谦虚、克制与无私。</p>
+              <p>{{movie.storyline.substring(0, 65)}}...</p>
             </div>
           </div>
         </div>
@@ -62,17 +26,41 @@
 
 <script>
 import { Slider, SliderItem } from 'vue-easy-slider'
+import movieApi from '../../api/movieApi'
 export default {
   name: 'hot-movies',
+  created () {
+    this.get_cur_movies()
+  },
   data () {
     return {
       msg: '正在热映的电影',
-      value5: 4.7
+      movies: ''
     }
   },
   components: {
     Slider,
     SliderItem
+  },
+  methods: {
+    get_cur_movies () {
+      var _this = this
+      movieApi.getCurMovies()
+        .then(function (res) {
+          _this.movies = res.data['data']
+          window.console.log(_this.movies)
+        })
+        .catch(function (res) {
+          if (res instanceof Error) {
+            window.console.log(res.message)
+          } else {
+            window.console.log(res.data)
+          }
+        })
+    },
+    goToMovie (id) {
+      this.$router.push('/movie/' + id)
+    }
   }
 }
 </script>

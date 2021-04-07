@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="movie_comment">
-          {{ movie.storyline.substring(0, 20) }}..
+          {{ movie.storyline.substring(0, 40) }}..
         </div>
       </div>
     </div>

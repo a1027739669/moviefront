@@ -23,7 +23,7 @@
               <span class="actor" v-show="movie.actors">
                 <span class="pl">主演：</span>
                 <span class="attrs">
-                <span>{{ movie.actors }}</span>
+                <a v-for="actor in movie.actor_li"  :href="['http://localhost:3000/person/'+actor.actorid]">{{ actor.actorname }}/</a>
                 </span>
                 <br>
               </span>

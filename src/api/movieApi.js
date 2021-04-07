@@ -154,5 +154,14 @@ export default {
       withCredentials: true
     }
     )
+  },
+  getCurMovies () {
+    let url = movieApi.getCurMovies()
+    return axios({
+      method: 'get',
+      url: url,
+      withCredentials: true
+    }
+    )
   }
 }

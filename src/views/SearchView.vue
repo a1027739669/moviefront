@@ -17,7 +17,7 @@
                 <span>演员：{{movie.actors}}</span><br>
                 <span>类型：{{movie.genre}}</span><br>
                 <span>发行年份：{{movie.year}}</span>
-                <div >
+                <div>
                   <span>评分：{{movie.score}}</span>
                   <br>
                 </div>

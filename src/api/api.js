@@ -62,5 +62,7 @@ export const movieApi = {
   commentListUrl: () => host + '/movies/commentlist',
   deleteCommentUrl: () => host + '/movies/deletecomment',
   getAlsoLikeMovieUrl: () => host + '/movies/alsolike',
-  getPersonUrl: () => host + '/movies/alsolike'
+  getPersonUrl: () => host + '/movies/alsolike',
+  getCurMovies: () => host + '/movies/curmovies'
+
 }
